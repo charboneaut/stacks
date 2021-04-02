@@ -22,6 +22,11 @@ class TestStacks(unittest.TestCase):
         test_stack.push([1, 2, 3])
         self.assertEqual(test_stack.items, [1, 2, 3])
 
+    def test_push_bad(self):
+        with self.assertRaises(TypeError):
+            test_stack = Stack()
+            test_stack.push(dict({1: 2}))          
+
     def test_pop(self):
         test_stack = Stack([1, 2, 3])
         test_return = test_stack.pop()
