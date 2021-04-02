@@ -9,9 +9,13 @@ class Stack():
         print(self.items)
 
     def push(self, items):
-        """adds items to end of items"""
-        self.items.append(items)
-    
+        """adds items to end of items,
+        will decide to extend or append based on item iterability"""
+        if hasattr(items, "__iter__"):
+            self.items.extend(items)
+        else:
+            self.items.append(items)
+
     def pop(self):
         """removes the last item and returns it"""
         return self.items.pop(len(self.items) - 1)
