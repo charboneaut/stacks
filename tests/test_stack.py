@@ -27,3 +27,9 @@ class TestStacks(unittest.TestCase):
         test_return = test_stack.pop()
         self.assertEqual(test_stack.items, [1, 2])
         self.assertEqual(test_return, 3)
+
+    def test_pop_many(self):
+        test_stack = Stack([1, 2, 3, 4, 5])
+        test_return = test_stack.pop(3)
+        self.assertEqual(test_stack.items, [1, 2])
+        self.assertEqual(test_return, [5, 4, 3])

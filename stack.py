@@ -8,14 +8,21 @@ class Stack():
         """prints items"""
         print(self.items)
 
-    def push(self, items):
-        """adds items to end of items,
+    def push(self, item):
+        """adds item to end of items,
         will decide to extend or append based on item iterability"""
-        if hasattr(items, "__iter__"):
-            self.items.extend(items)
+        if hasattr(item, "__iter__"):
+            self.items.extend(item)
         else:
-            self.items.append(items)
+            self.items.append(item)
 
-    def pop(self):
-        """removes the last item and returns it"""
-        return self.items.pop(len(self.items) - 1)
+    def pop(self, count=1):
+        """removes the last item or
+         item list in the order of popping and returns it"""
+        if count == 1:
+            return self.items.pop(len(self.items) - 1)
+        else:
+            items = []
+            for _ in range(count):
+                items.append(self.items.pop(len(self.items) - 1))
+            return items
