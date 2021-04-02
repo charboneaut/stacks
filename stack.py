@@ -10,10 +10,7 @@ class Stack():
 
     def push(self, item):
         """adds item to end of items,
-        will decide to extend or append based on item iterability,
-        rejects dictionary types; use dict.keys() or dict.items()"""
-        if isinstance(item, dict):
-            raise TypeError
+        will decide to extend or append based on item iterability"""
         if hasattr(item, "__iter__"):
             self.items.extend(item)
         else:
